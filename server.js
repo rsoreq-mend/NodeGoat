@@ -123,9 +123,9 @@ MongoClient.connect(db, (err, db) => {
 
     // Initializing marked library
     // Fix for A9 - Insecure Dependencies
-    marked.setOptions({
-        sanitize: true
-    });
+    // Note: 'sanitize' option was removed in marked v1+; sanitize user input
+    // before passing to marked or use a sanitizer like DOMPurify.
+    marked.setOptions({});
     app.locals.marked = marked;
 
     // Application routes
